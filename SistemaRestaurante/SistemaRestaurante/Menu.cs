@@ -13,12 +13,12 @@ namespace SistemaRestaurante
 {
     public partial class Menu : Form
     {
-        public Menu()
+        public Menu(string user)
         {
             InitializeComponent();
-            
+            this.user = user;
         }
-
+        string user;
         private void Menu_Load(object sender, EventArgs e)
         {
             IsMdiContainer = true;
@@ -51,9 +51,10 @@ namespace SistemaRestaurante
             fProductosC.Show();
         }
 
-        public static frmNuevaOrden fNuevaOrden = new frmNuevaOrden();
+        
         private void nuevaCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmNuevaOrden fNuevaOrden = new frmNuevaOrden(user);
             fNuevaOrden.MdiParent = this;
             fNuevaOrden.Show();
         }

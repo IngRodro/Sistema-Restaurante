@@ -96,7 +96,8 @@ namespace SistemaRestaurante
             {
                 MessageBox.Show("Bienvenido/a " + Nombre);
                 this.Hide();
-                Menu menu = new Menu();
+                string user = txtUsuario.Text;
+                Menu menu = new Menu(user);
                 menu.Show();
             }
             else

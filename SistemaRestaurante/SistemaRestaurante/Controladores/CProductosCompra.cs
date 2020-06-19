@@ -34,20 +34,5 @@ namespace SistemaRestaurante.Controladores
             mProductoCompra.eliminarProductoC(PC);
         }
 
-        public double obtenerPrecioCompra(int IdProductoC)
-        {
-            double precio = 0;
-            for (int i = 0; i < Listado().Count; i++)
-            {
-                ProductosCompra productosCompra = new ProductosCompra();
-                productosCompra = Listado()[i];
-                if (productosCompra.idProductoC == IdProductoC)
-                {
-                    precio = productosCompra.precio;
-                }
-            }
-
-            return precio;
-        }
     }
 }

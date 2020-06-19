@@ -5,8 +5,6 @@ begin
 	Insert into Usuarios(nombredeUsuario,nombre,edad,telefono,email,contraseña,rol) values (@nombreUsuario,@nombre,@edad,@telefono,@email,@contraseña,@rol)
 end
 Go
-execute sp_registrarUsuario 'ElRodro', 'Rodrigo Ramirez', 30, '7879-3663', 'rodro@gmail.com', '123','Administrador'
-Go
 create procedure sp_nuevoProductoVenta
 @nombre varchar(25), @precio money, @categoria varchar(20)
 as
@@ -73,7 +71,6 @@ begin
 	delete Proveedores where idProveedor = @idProveedor
 end
 Go
-
 create procedure sp_nuevaVenta
 @totalaPagar money, @nombredeUsuario varchar(30)
 as
@@ -82,7 +79,7 @@ begin
 	Set @fecha = GetDate()
 	Insert into Ventas(fechadeVenta,totalPagar,estado,nombredeUsuario) values(@fecha,@totalaPagar,'Enviada',@nombredeUsuario)
 end
-
+Go
 create procedure sp_nuevoDetalleV
 @idProductoV int, @precioVenta money, @cantidad int, @idVenta int
 as
@@ -92,7 +89,7 @@ begin
 	Insert into DetallesVenta(idProductoV, precioVenta, cantidad, totalProducto, idVenta) 
 	values(@idProductoV,@precioVenta, @cantidad,@totalProducto,@idVenta)
 end
-
+Go
 create procedure sp_eliminarVenta
 @idVenta int
 as
@@ -100,7 +97,7 @@ begin
 	Delete DetallesVenta where idVenta = @idVenta
 	Delete Ventas where idVenta = @idVenta
 end
-
+Go
 create procedure sp_nuevaCompra
 @totalaPagar money, @nombredeUsuario varchar(30), @idProveedor int
 as
@@ -109,7 +106,7 @@ begin
 	Set @fecha = GetDate()
 	Insert into Compras(fechadeCompra,totalaPagar,idProveedor,nombredeUsuario) values(@fecha,@totalaPagar,@idProveedor,@nombredeUsuario)
 end
-
+Go
 create procedure sp_nuevoDetalleC
 @idProductoC int, @precioCompra money, @cantidad int, @idCompra int
 as
@@ -119,15 +116,7 @@ begin
 	Insert into DetallesCompra(idProductoC, precioCompra, cantidad, totalProducto, idCompra) 
 	values(@idProductoC,@precioCompra, @cantidad,@totalProducto,@idCompra)
 end
-
-create procedure sp_eliminarCompra
-@idVenta int
-as
-begin
-	Delete DetallesVenta where idVenta = @idVenta
-	Delete Ventas where idVenta = @idVenta
-end
-
+Go
 create procedure sp_RecibirCompra
 @idCompra int
 as
@@ -181,31 +170,17 @@ begin
 
 		--actualizar la orden a recibida
 end
-
+Go
 create procedure sp_idUltimaCompra
 as
 begin
 	Select MAX(idCompra) from Compras
 end
-
+Go
 create procedure sp_ListarProductosCporProveedor
 @idProveedor int
 as
 begin
 	Select * from ProductosCompra where idProveedor = @idProveedor
 end
-
-create procedure sp_ListarProductosCporProveedor
-@idProveedor int
-as
-begin
-	Select * from ProductosCompra where idProveedor = @idProveedor
-end
-
-
-create procedure sp_recibirPrecioCompra
-@idProductoC int
-as
-begin
-	Select precio from ProductosCompra where idProductoC = @idProductoC
-end
+Go

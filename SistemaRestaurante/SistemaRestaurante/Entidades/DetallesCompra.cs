@@ -12,7 +12,7 @@ namespace SistemaRestaurante.Entidades
         public int idProductoC { get; set; }
         public double precioCompra { get; set; }
         public int cantidad { get; set; }
-        public double totalProducto { get; set; }
+        public float totalProducto { get; set; }
         public int idCompra { get; set; }
     }
 }

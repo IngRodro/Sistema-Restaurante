@@ -14,22 +14,25 @@ namespace SistemaRestaurante.Formularios
 {
     public partial class frmNuevaOrden : Form
     {
-        public frmNuevaOrden()
+        public frmNuevaOrden(string user)
         {
             InitializeComponent();
             Nuevo();
+            this.user = user;
         }
+        String user;
         CProductosCompra cProductosCompra = new CProductosCompra();
-        DetallesCompra detalles = new DetallesCompra();
         BindingList<DetallesCompra> listaDetalles = new BindingList<DetallesCompra>();
         CProveedor cProveedor = new CProveedor();
+        CCompra cCompra = new CCompra();
+        DetallesCompra detalles = new DetallesCompra();
         Compras compras = new Compras();
         private void Nuevo()
         {
             comprasBindingSource.MoveLast();
             comprasBindingSource.AddNew();
-            detallesCompraBindingSource1.MoveLast();
-            detallesCompraBindingSource1.AddNew();
+            detallesCompraBindingSource.MoveLast();
+            detallesCompraBindingSource.AddNew();
         }
 
         private void CargarComboP()
@@ -37,13 +40,13 @@ namespace SistemaRestaurante.Formularios
             if (idProveedorComboBox.SelectedValue != null)
             {
                 int IdProvee = Int32.Parse(idProveedorComboBox.SelectedValue.ToString());
-                productosCompraBindingSource1.DataSource = cProductosCompra.ListaProductosCProveedor(IdProvee);
+                productosCompraBindingSource.DataSource = cProductosCompra.ListaProductosCProveedor(IdProvee);
             }
         }
         private void frmNuevaOrden_Load(object sender, EventArgs e)
         {
             proveedoresBindingSource.DataSource = cProveedor.Listado();
-            productosCompraBindingSource.DataSource = cProductosCompra.Listado();
+            productosCompraBindingSource1.DataSource = cProductosCompra.Listado();
         }
 
         private void idProveedorComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,36 +54,6 @@ namespace SistemaRestaurante.Formularios
             CargarComboP();
         }
 
-        private void idProductoCComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (idProductoCComboBox.SelectedValue != null)
-            {
-                int IdProdC = Int32.Parse(idProductoCComboBox.SelectedValue.ToString());
-                detalles.precioCompra = cProductosCompra.obtenerPrecioCompra(IdProdC);
-                detalles.idProductoC = IdProdC;
-                detallesCompraBindingSource1.DataSource = detalles;
-            }
-        }
-
-        private void cantidadTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (cantidadTextBox.Text != "")
-            {
-                if (Int32.Parse(cantidadTextBox.Text) > 0)
-                {
-                    int IdProdC = Int32.Parse(idProductoCComboBox.SelectedValue.ToString());
-                    detalles.precioCompra = Convert.ToDouble(precioCompraTextBox.Text);
-                    detalles.idProductoC = IdProdC;
-                    detalles.cantidad = Convert.ToInt32(cantidadTextBox.Text);
-                    detalles.totalProducto = Convert.ToDouble(cantidadTextBox.Text) * Convert.ToDouble(precioCompraTextBox.Text);
-                    detallesCompraBindingSource1.DataSource = detalles;
-                }
-                else
-                {
-                    cantidadTextBox.Text = "0";
-                }
-            }
-        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -90,16 +63,29 @@ namespace SistemaRestaurante.Formularios
             }
             else
             {
+                Compras totalcompra = new Compras();
 
-                listaDetalles.Add((DetallesCompra)detallesCompraBindingSource1.Current);
-                detallesCompraBindingSource1.EndEdit();
-                detallesCompraBindingSource1.AddNew();
+                detalles = (DetallesCompra)detallesCompraBindingSource.Current;
+                listaDetalles.Add(detalles);
+                compras.AgregarDetalles(detalles);
+                detallesCompraBindingSource.EndEdit();
+                detallesCompraBindingSource.AddNew();
 
-                detallesCompraBindingSource.DataSource = listaDetalles;
-                detallesCompraBindingSource.ResetBindings(true);
+                detallesCompraBindingSource1.DataSource = listaDetalles;
+                detallesCompraBindingSource1.ResetBindings(true);
 
-
+                totalcompra = (Compras)comprasBindingSource.Current;
+                totalcompra.totalaPagar = totalcompra.totalaPagar + detalles.totalProducto;
+                comprasBindingSource.ResetBindings(true);
             }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            compras = (Compras)comprasBindingSource.Current;
+            compras.nombredeUsuario = user;
+            compras.detalles = listaDetalles.ToList();
+            cCompra.guardarCompra(compras);
         }
     }
 }

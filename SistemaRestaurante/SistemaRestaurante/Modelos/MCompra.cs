@@ -46,5 +46,16 @@ namespace SistemaRestaurante.Modelos
             con.Close();
             return idCompra;
         }
+
+        internal void procesarCompra(int idCompra)
+        {
+            IDbConnection con = Conexion.Conexion.Conectar();
+            String consulta = "sp_RecibirCompra";
+            DynamicParameters parametros = new DynamicParameters();
+            parametros.Add("@idCompra", idCompra, DbType.Int32);
+            con.Open();
+            con.Execute(consulta, parametros, commandType: CommandType.StoredProcedure);
+            con.Close();
+        }
     }
 }
