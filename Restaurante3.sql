@@ -184,3 +184,79 @@ begin
 	Select * from ProductosCompra where idProveedor = @idProveedor
 end
 Go
+create procedure sp_RecibirVenta
+@idVenta int
+as
+begin
+
+--validar si la  orden ya fue recibida
+
+
+	--Crear la tabla temporal
+		drop table if exists #procesarorden;
+
+		create table #procesarorden(
+			id int identity primary key,
+			idProductoV int,
+			cantidad int
+		);
+	--Insertando todos los detalles de la orden a procesar
+	insert into #procesarorden (idProductoV,cantidad)
+	select idProductoV,cantidad from DetallesVenta where idVenta=@idVenta
+
+	
+	
+		WHILE ( SELECT count(*) FROM #procesarorden ) >0  
+		BEGIN  
+			drop table if exists #procesarReceta;
+
+			-- variables temporales a usar
+			declare @id int, @idProductoV int, @cantidadV int;
+			--estableciendo valores en la variables
+			select top 1 @id=id,@idProductoV=idProductoV, @cantidadV = cantidad from #procesarorden;
+			--procesando todas filas de la tabla temporal
+
+			create table #procesarReceta(
+			id int identity primary key,
+			idProductoV int,
+			idProductoC int,
+			cantidadEstimada int
+			);
+			insert into #procesarReceta (idProductoV,idProductoC,cantidadEstimada)
+			select idProductoV,idProductoC,cantidadEstimada from Recetas where idProductoV=@idProductoV
+
+			WHILE ( SELECT count(*) FROM #procesarReceta ) >0  
+			BEGIN  
+
+			-- variables temporales a usar
+			declare @idR int, @idProductoC int, @idAlmacen int =0,
+			@cantidadEstimada int;
+			--estableciendo valores en la variables
+			select top 1 @idR=id,@idProductoc=idProductoC,
+			@cantidadEstimada=cantidadEstimada from #procesarReceta;
+			--procesando todas filas de la tabla temporal
+
+			--Comprobando si ya existe el producto en el inventario
+			select @idAlmacen = idAlmacen from Almacen where idProductoC=@idProductoC
+			if @idAlmacen>=1
+			--incrementar existencias
+				begin 
+					update Almacen set cantidadDisponible=cantidadDisponible+(@cantidadV/@cantidadEstimada)
+					where idAlmacen=@idAlmacen;
+				end
+			
+			delete from #procesarReceta where id=@idR;
+			END
+		delete from #procesarorden where id=@id;
+		END 
+
+		--actualizar la orden a recibida
+end
+Go
+
+create procedure sp_ultimaVenta
+as
+begin
+	Select MAX(idVenta) from Ventas
+end
+Go

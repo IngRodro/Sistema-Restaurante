@@ -81,7 +81,7 @@ Go
 Create table Recetas(
 idReceta int identity(1,1) primary key not null,
 idProductoV int foreign key references ProductosVenta(idProductoV),
-idProductoC int foreign key references ProductosCompra(idProductoC)
+idProductoC int foreign key references ProductosCompra(idProductoC),
 cantidadEstimada int
 );
 Go

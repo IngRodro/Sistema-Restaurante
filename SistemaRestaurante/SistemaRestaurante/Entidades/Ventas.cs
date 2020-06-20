@@ -13,5 +13,10 @@ namespace SistemaRestaurante.Entidades
         public float TotalPagar { get; set; }
         public string estado {get; set;}
         public string nombredeUsuario { get; set; }
+        public List<DetallesVenta> detalles { get; set; }
+        public Ventas()
+        {
+            detalles = new List<DetallesVenta>();
+        }
     }
 }

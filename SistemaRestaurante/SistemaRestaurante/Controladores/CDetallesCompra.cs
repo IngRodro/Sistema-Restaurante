@@ -22,9 +22,5 @@ namespace SistemaRestaurante.Controladores
             mDetalles.guardarDetallesCompra(DC);
         }
 
-        internal void RecibirCompra(int idCompra)
-        {
-            mDetalles.RecibirCompra(idCompra);
-        }
     }
 }

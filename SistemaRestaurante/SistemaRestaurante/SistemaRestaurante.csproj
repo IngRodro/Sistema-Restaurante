@@ -53,10 +53,12 @@
     <Compile Include="Conexion\Conexion.cs" />
     <Compile Include="Controladores\CCompra.cs" />
     <Compile Include="Controladores\CDetallesCompra.cs" />
+    <Compile Include="Controladores\CDetallesVenta.cs" />
     <Compile Include="Controladores\CProductosCompra.cs" />
     <Compile Include="Controladores\CProductosVenta.cs" />
     <Compile Include="Controladores\CProveedor.cs" />
     <Compile Include="Controladores\CUsuario.cs" />
+    <Compile Include="Controladores\CVenta.cs" />
     <Compile Include="Entidades\Almacen.cs" />
     <Compile Include="Entidades\Compras.cs" />
     <Compile Include="Entidades\DetallesCompra.cs" />
@@ -122,6 +124,7 @@
     <Compile Include="Modelos\MProductoVenta.cs" />
     <Compile Include="Modelos\MProveedor.cs" />
     <Compile Include="Modelos\MUsuario.cs" />
+    <Compile Include="Modelos\MVenta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FNuevoUsuario.resx">
