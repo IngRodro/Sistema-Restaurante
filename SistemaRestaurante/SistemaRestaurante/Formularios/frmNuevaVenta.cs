@@ -14,15 +14,18 @@ namespace SistemaRestaurante.Formularios
 {
     public partial class frmNuevaVenta : Form
     {
-        public frmNuevaVenta()
+        public frmNuevaVenta(string user)
         {
             InitializeComponent();
             Nuevo();
+            this.user = user;
         }
+        string user;
         CProductosVenta cProductosCompra = new CProductosVenta();
         DetallesVenta detalles = new DetallesVenta();
         BindingList<DetallesVenta> listaDetalles = new BindingList<DetallesVenta>();
         Ventas ventas = new Ventas();
+        CVenta cVenta = new CVenta();
 
         private void Nuevo()
         {
@@ -40,14 +43,29 @@ namespace SistemaRestaurante.Formularios
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            listaDetalles.Add((DetallesVenta)detallesVentaBindingSource1.Current);
+            Ventas totalventa = new Ventas();
+
+            detalles = (DetallesVenta)detallesVentaBindingSource1.Current;
+            listaDetalles.Add(detalles);
             detallesVentaBindingSource1.EndEdit();
             detallesVentaBindingSource1.AddNew();
 
             detallesVentaBindingSource.DataSource = listaDetalles;
             detallesVentaBindingSource.ResetBindings(true);
             detallesVentaDataGridView.ClearSelection();
+
+            totalventa = (Ventas)ventasBindingSource.Current;
+            totalventa.TotalPagar = totalventa.TotalPagar + detalles.totalProducto;
+            ventasBindingSource.DataSource = totalventa;
+            ventasBindingSource.ResetBindings(true);
         }
 
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            ventas = (Ventas)ventasBindingSource.Current;
+            ventas.nombredeUsuario = user;
+            ventas.detalles = listaDetalles.ToList();
+            cVenta.guardarCompra(ventas);
+        }
     }
 }

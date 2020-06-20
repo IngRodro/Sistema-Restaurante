@@ -27,9 +27,9 @@ namespace SistemaRestaurante.Modelos
             String consulta = "sp_nuevoDetalleV";
             DynamicParameters parametros = new DynamicParameters();
             parametros.Add("@idProductoV", DV.idProductoV, DbType.Int32);
-            parametros.Add("@precioCompra", DV.precioVenta, DbType.Decimal);
+            parametros.Add("@precioVenta", DV.precioVenta, DbType.Decimal);
             parametros.Add("@cantidad", DV.cantidad, DbType.Int32);
-            parametros.Add("@idCompra", DV.idVenta, DbType.Int32);
+            parametros.Add("@idVenta", DV.idVenta, DbType.Int32);
             con.Open();
             con.Execute(consulta, parametros, commandType: CommandType.StoredProcedure);
             con.Close();

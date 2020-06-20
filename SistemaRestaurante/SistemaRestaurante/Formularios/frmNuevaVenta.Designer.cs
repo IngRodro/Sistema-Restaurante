@@ -211,6 +211,7 @@
             this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar Compra";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnAgregar
             // 

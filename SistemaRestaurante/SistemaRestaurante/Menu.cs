@@ -59,9 +59,10 @@ namespace SistemaRestaurante
             fNuevaOrden.Show();
         }
 
-        public static frmNuevaVenta fNuevaVenta = new frmNuevaVenta();
+        
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           frmNuevaVenta fNuevaVenta = new frmNuevaVenta(user);
             fNuevaVenta.MdiParent = this;
             fNuevaVenta.Show();
         }

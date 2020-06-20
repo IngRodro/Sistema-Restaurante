@@ -241,7 +241,7 @@ begin
 			if @idAlmacen>=1
 			--incrementar existencias
 				begin 
-					update Almacen set cantidadDisponible=cantidadDisponible+(@cantidadV/@cantidadEstimada)
+					update Almacen set cantidadDisponible=cantidadDisponible-(@cantidadV/@cantidadEstimada)
 					where idAlmacen=@idAlmacen;
 				end
 			

@@ -76,6 +76,7 @@ namespace SistemaRestaurante.Formularios
 
                 totalcompra = (Compras)comprasBindingSource.Current;
                 totalcompra.totalaPagar = totalcompra.totalaPagar + detalles.totalProducto;
+                comprasBindingSource.DataSource = totalcompra;
                 comprasBindingSource.ResetBindings(true);
             }
         }

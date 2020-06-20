@@ -14,7 +14,7 @@ namespace SistemaRestaurante.Modelos
         public List<Ventas> Listado()
         {
             IDbConnection con = Conexion.Conexion.Conectar();
-            String consulta = "Select * from Compras";
+            String consulta = "Select * from Venta";
             List<Ventas> listado = new List<Ventas>();
             con.Open();
             listado = con.Query<Ventas>(consulta).ToList();
@@ -24,7 +24,7 @@ namespace SistemaRestaurante.Modelos
         internal void guardarVenta(Ventas V)
         {
             IDbConnection con = Conexion.Conexion.Conectar();
-            String consulta = "sp_nuevaCompra";
+            String consulta = "sp_nuevaVenta";
             DynamicParameters parametros = new DynamicParameters();
             parametros.Add("@totalaPagar", V.TotalPagar, DbType.Int32);
             parametros.Add("@nombredeUsuario", V.nombredeUsuario, DbType.String);
