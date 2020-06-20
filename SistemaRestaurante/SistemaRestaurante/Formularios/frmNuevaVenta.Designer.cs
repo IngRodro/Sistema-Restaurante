@@ -127,6 +127,8 @@
             // 
             // detallesVentaDataGridView
             // 
+            this.detallesVentaDataGridView.AllowUserToAddRows = false;
+            this.detallesVentaDataGridView.AllowUserToDeleteRows = false;
             this.detallesVentaDataGridView.AutoGenerateColumns = false;
             this.detallesVentaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.detallesVentaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -138,6 +140,7 @@
             this.detallesVentaDataGridView.DataSource = this.detallesVentaBindingSource;
             this.detallesVentaDataGridView.Location = new System.Drawing.Point(77, 152);
             this.detallesVentaDataGridView.Name = "detallesVentaDataGridView";
+            this.detallesVentaDataGridView.ReadOnly = true;
             this.detallesVentaDataGridView.Size = new System.Drawing.Size(648, 220);
             this.detallesVentaDataGridView.TabIndex = 12;
             // 
@@ -149,6 +152,7 @@
             this.dataGridViewTextBoxColumn2.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.dataGridViewTextBoxColumn2.HeaderText = "Producto";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewTextBoxColumn2.ValueMember = "idProductoV";
@@ -162,18 +166,21 @@
             this.dataGridViewTextBoxColumn3.DataPropertyName = "precioVenta";
             this.dataGridViewTextBoxColumn3.HeaderText = "Precio";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "cantidad";
             this.dataGridViewTextBoxColumn4.HeaderText = "Cantidad";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "totalProducto";
             this.dataGridViewTextBoxColumn5.HeaderText = "Total";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // cantidadTextBox
             // 

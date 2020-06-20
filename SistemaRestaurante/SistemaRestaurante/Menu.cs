@@ -54,7 +54,7 @@ namespace SistemaRestaurante
         
         private void nuevaCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmNuevaOrden fNuevaOrden = new frmNuevaOrden(user);
+            frmNuevaCompra fNuevaOrden = new frmNuevaCompra(user);
             fNuevaOrden.MdiParent = this;
             fNuevaOrden.Show();
         }

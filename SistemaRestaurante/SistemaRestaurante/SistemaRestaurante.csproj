@@ -63,7 +63,6 @@
     <Compile Include="Entidades\Compras.cs" />
     <Compile Include="Entidades\DetallesCompra.cs" />
     <Compile Include="Entidades\DetallesVenta.cs" />
-    <Compile Include="Entidades\IngredientesProducto.cs" />
     <Compile Include="Entidades\ProductosCompra.cs" />
     <Compile Include="Entidades\ProductosVenta.cs" />
     <Compile Include="Entidades\Proveedores.cs" />
@@ -75,11 +74,11 @@
     <Compile Include="FNuevoUsuario.Designer.cs">
       <DependentUpon>FNuevoUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmNuevaOrden.cs">
+    <Compile Include="Formularios\frmNuevaCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmNuevaOrden.Designer.cs">
-      <DependentUpon>frmNuevaOrden.cs</DependentUpon>
+    <Compile Include="Formularios\frmNuevaCompra.Designer.cs">
+      <DependentUpon>frmNuevaCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmNuevaVenta.cs">
       <SubType>Form</SubType>
@@ -130,8 +129,8 @@
     <EmbeddedResource Include="FNuevoUsuario.resx">
       <DependentUpon>FNuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmNuevaOrden.resx">
-      <DependentUpon>frmNuevaOrden.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\frmNuevaCompra.resx">
+      <DependentUpon>frmNuevaCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmNuevaVenta.resx">
       <DependentUpon>frmNuevaVenta.cs</DependentUpon>

@@ -12,9 +12,9 @@ using SistemaRestaurante.Entidades;
 
 namespace SistemaRestaurante.Formularios
 {
-    public partial class frmNuevaOrden : Form
+    public partial class frmNuevaCompra : Form
     {
-        public frmNuevaOrden(string user)
+        public frmNuevaCompra(string user)
         {
             InitializeComponent();
             Nuevo();
@@ -43,7 +43,7 @@ namespace SistemaRestaurante.Formularios
                 productosCompraBindingSource.DataSource = cProductosCompra.ListaProductosCProveedor(IdProvee);
             }
         }
-        private void frmNuevaOrden_Load(object sender, EventArgs e)
+        private void frmNuevaCompra_Load(object sender, EventArgs e)
         {
             proveedoresBindingSource.DataSource = cProveedor.Listado();
             productosCompraBindingSource1.DataSource = cProductosCompra.Listado();
@@ -78,6 +78,7 @@ namespace SistemaRestaurante.Formularios
                 totalcompra.totalaPagar = totalcompra.totalaPagar + detalles.totalProducto;
                 comprasBindingSource.DataSource = totalcompra;
                 comprasBindingSource.ResetBindings(true);
+                idProveedorComboBox.Enabled = false;
             }
         }
 

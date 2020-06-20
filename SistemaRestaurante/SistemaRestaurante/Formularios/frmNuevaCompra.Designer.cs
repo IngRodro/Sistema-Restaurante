@@ -1,6 +1,6 @@
 ﻿namespace SistemaRestaurante.Formularios
 {
-    partial class frmNuevaOrden
+    partial class frmNuevaCompra
     {
         /// <summary>
         /// Required designer variable.
@@ -281,7 +281,7 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // frmNuevaOrden
+            // frmNuevaCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -301,9 +301,9 @@
             this.Controls.Add(this.precioCompraTextBox);
             this.Controls.Add(totalProductoLabel);
             this.Controls.Add(this.totalProductoTextBox);
-            this.Name = "frmNuevaOrden";
+            this.Name = "frmNuevaCompra";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.frmNuevaOrden_Load);
+            this.Load += new System.EventHandler(this.frmNuevaCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.detallesCompraBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosCompraBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detallesCompraDataGridView)).EndInit();
