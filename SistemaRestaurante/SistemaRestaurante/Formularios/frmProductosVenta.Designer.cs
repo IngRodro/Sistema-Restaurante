@@ -53,6 +53,7 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.IdProductoVlabel = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnReceta = new System.Windows.Forms.Button();
             categoriaLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             precioLabel = new System.Windows.Forms.Label();
@@ -312,6 +313,19 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // btnReceta
+            // 
+            this.btnReceta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReceta.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReceta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnReceta.Location = new System.Drawing.Point(560, 41);
+            this.btnReceta.Name = "btnReceta";
+            this.btnReceta.Size = new System.Drawing.Size(99, 34);
+            this.btnReceta.TabIndex = 20;
+            this.btnReceta.Text = "Ver Receta";
+            this.btnReceta.UseVisualStyleBackColor = true;
+            this.btnReceta.Click += new System.EventHandler(this.btnReceta_Click);
+            // 
             // frmProductosVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,6 +333,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(800, 532);
             this.ControlBox = false;
+            this.Controls.Add(this.btnReceta);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.IdProductoVlabel);
@@ -361,5 +376,6 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label IdProductoVlabel;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnReceta;
     }
 }

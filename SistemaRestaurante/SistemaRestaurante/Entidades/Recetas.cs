@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace SistemaRestaurante.Entidades
 {
-    public class Almacen
+    class Recetas
     {
+        public int idReceta { get; set; }
+        public int idProductoV { get; set; }
         public int idProductoC { get; set; }
-        public float cantidadDisponible { get; set; }
+        public float cantidadEstimada { get; set; }
     }
 }

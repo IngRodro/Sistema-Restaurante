@@ -25,7 +25,6 @@ C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurant
 C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\bin\Debug\Dapper.xml
 C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.csprojAssemblyReference.cache
 C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.FNuevoUsuario.resources
-C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.Formularios.frmNuevaOrden.resources
 C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.Formularios.frmNuevaVenta.resources
 C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.Formularios.frmProductosCompra.resources
 C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.Formularios.frmProductosVenta.resources
@@ -38,3 +37,6 @@ C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurant
 C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.csproj.CopyComplete
 C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.exe
 C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.pdb
+C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.Formularios.frmNuevaCompra.resources
+C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.Formularios.frmRecetas.resources
+C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.Formularios.frmInventario.resources

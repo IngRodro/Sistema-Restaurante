@@ -86,5 +86,13 @@ namespace SistemaRestaurante.Formularios
         {
             Nuevo();
         }
+
+        private void btnReceta_Click(object sender, EventArgs e)
+        {
+            ProductosVenta productosV = new ProductosVenta();
+            productosV = (ProductosVenta)productosVentaBindingSource1.Current;
+            frmRecetas frmReceta = new frmRecetas(productosV);
+            frmReceta.Show();
+        }
     }
 }
