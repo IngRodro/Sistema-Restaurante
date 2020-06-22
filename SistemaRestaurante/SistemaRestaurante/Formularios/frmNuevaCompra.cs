@@ -88,6 +88,7 @@ namespace SistemaRestaurante.Formularios
             compras.nombredeUsuario = user;
             compras.detalles = listaDetalles.ToList();
             cCompra.guardarCompra(compras);
+            MessageBox.Show("Compra Realizada con Exito");
         }
     }
 }

@@ -26,6 +26,7 @@ namespace SistemaRestaurante.Formularios
         BindingList<DetallesVenta> listaDetalles = new BindingList<DetallesVenta>();
         Ventas ventas = new Ventas();
         CVenta cVenta = new CVenta();
+        CDetallesVenta cDetalles = new CDetallesVenta();
 
         private void Nuevo()
         {
@@ -44,20 +45,34 @@ namespace SistemaRestaurante.Formularios
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Ventas totalventa = new Ventas();
+            if (cantidadTextBox.Text.Equals("0") || precioVentaTextBox.Text.Equals("0") || idProductoVComboBox.SelectedValue == null || totalProductoTextBox.Text.Equals("0"))
+            {
+                MessageBox.Show("Debe Ingresar todos los campos");
+            }
+            else
+            {
+                detalles = (DetallesVenta)detallesVentaBindingSource1.Current;
+                if (cDetalles.verificarIngredientes(detalles) == true)
+                {
+                    listaDetalles.Add(detalles);
+                    detallesVentaBindingSource1.EndEdit();
+                    detallesVentaBindingSource1.AddNew();
 
-            detalles = (DetallesVenta)detallesVentaBindingSource1.Current;
-            listaDetalles.Add(detalles);
-            detallesVentaBindingSource1.EndEdit();
-            detallesVentaBindingSource1.AddNew();
+                    detallesVentaBindingSource.DataSource = listaDetalles;
+                    detallesVentaBindingSource.ResetBindings(true);
+                    detallesVentaDataGridView.ClearSelection();
 
-            detallesVentaBindingSource.DataSource = listaDetalles;
-            detallesVentaBindingSource.ResetBindings(true);
-            detallesVentaDataGridView.ClearSelection();
-
-            totalventa = (Ventas)ventasBindingSource.Current;
-            totalventa.TotalPagar = totalventa.TotalPagar + detalles.totalProducto;
-            ventasBindingSource.DataSource = totalventa;
-            ventasBindingSource.ResetBindings(true);
+                    totalventa = (Ventas)ventasBindingSource.Current;
+                    totalventa.TotalPagar = totalventa.TotalPagar + detalles.totalProducto;
+                    ventasBindingSource.DataSource = totalventa;
+                    ventasBindingSource.ResetBindings(true);
+                }
+                else
+                {
+                    MessageBox.Show("Ingredientes Insuficientes en el Almacen");
+                }
+            }
+            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -66,6 +81,7 @@ namespace SistemaRestaurante.Formularios
             ventas.nombredeUsuario = user;
             ventas.detalles = listaDetalles.ToList();
             cVenta.guardarCompra(ventas);
+            MessageBox.Show("Venta Realizada con Exito");
         }
     }
 }
