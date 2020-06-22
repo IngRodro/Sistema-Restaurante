@@ -77,5 +77,10 @@ namespace SistemaRestaurante.Formularios
             cRecetas.eliminarReceta(recetas, productosV);
             recetasBindingSource.ResetBindings(true);
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

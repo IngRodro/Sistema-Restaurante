@@ -82,6 +82,12 @@ namespace SistemaRestaurante.Formularios
             ventas.detalles = listaDetalles.ToList();
             cVenta.guardarCompra(ventas);
             MessageBox.Show("Venta Realizada con Exito");
+            this.Close();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

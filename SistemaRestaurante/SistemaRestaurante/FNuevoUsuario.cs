@@ -33,44 +33,46 @@ namespace SistemaRestaurante
             Usuarios usuarios = new Usuarios();
             usuarios = (Usuarios)usuariosBindingSource.Current;
             CUsuario cUsuario = new CUsuario();
-            if (cUsuario.verificarexistencia(nombredeUsuarioTextBox.Text) == true)
+            if (telefonoTextBox.Equals("") || nombredeUsuarioTextBox.Equals("") || nombredeUsuarioTextBox.Equals("") || edadTextBox.Equals("0") || contraseñaTextBox.Equals("") || emailTextBox.Equals("") || rolComboBox.SelectedValue == null)
             {
-                MessageBox.Show("El Usuario ya esta Registrado, intenta con otro");
+                MessageBox.Show("Ingrese todos los Datos");
             }
             else
             {
-                if (rolComboBox.Text == "Administrador")
+                if (cUsuario.verificarexistencia(nombredeUsuarioTextBox.Text) == true)
                 {
-                    if (AdminPass == Interaction.InputBox("Ingrese la clave de Administrador"))
+                    MessageBox.Show("El Usuario ya esta Registrado, intenta con otro");
+                }
+                else
+                {
+                    if (rolComboBox.Text == "Administrador")
+                    {
+                        if (AdminPass == Interaction.InputBox("Ingrese la clave de Administrador"))
+                        {
+                            cUsuario.guardar(usuarios);
+                            MessageBox.Show("Registro realizado con exito");
+                            btnRegresar.PerformClick();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Clave de administrador incorrecta intente nuevamente");
+                        }
+
+                    }
+                    else if (rolComboBox.Text == "Usuario")
                     {
                         cUsuario.guardar(usuarios);
                         MessageBox.Show("Registro realizado con exito");
                         btnRegresar.PerformClick();
                     }
-                    else
-                    {
-                        MessageBox.Show("Clave de administrador incorrecta intente nuevamente");
-                    }
-
-                }
-                else if (rolComboBox.Text == "Usuario")
-                {
-                    cUsuario.guardar(usuarios);
-                    MessageBox.Show("Registro realizado con exito");
-                    btnRegresar.PerformClick();
                 }
             }
         }
 
-        public static Logueo logueo = new Logueo();
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            logueo.Show();
-        }
-
+      
         private void btnMostrar_Click(object sender, EventArgs e)
         {
+            Logueo logueo = new Logueo();
             this.Close();
             logueo.Show();
         }

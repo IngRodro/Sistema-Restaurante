@@ -94,11 +94,21 @@ namespace SistemaRestaurante
             String Nombre = cUsuario.ObtenerNombre(txtUsuario.Text, txtPassword.Text);
             if (cUsuario.verificarLogueo(txtUsuario.Text, txtPassword.Text) == true)
             {
-                MessageBox.Show("Bienvenido/a " + Nombre);
-                this.Hide();
-                string user = txtUsuario.Text;
-                Menu menu = new Menu(user);
-                menu.Show();
+                if (cUsuario.Obtenerrol(txtUsuario.Text, txtPassword.Text).Equals("Administrador"))
+                {
+                    MessageBox.Show("Bienvenido/a " + Nombre);
+                    this.Hide();
+                    string user = txtUsuario.Text;
+                    Menu menu = new Menu(user);
+                    menu.Show();
+                }else if (cUsuario.Obtenerrol(txtUsuario.Text, txtPassword.Text).Equals("Usuario"))
+                {
+                    MessageBox.Show("Bienvenido/a " + Nombre);
+                    this.Hide();
+                    string user = txtUsuario.Text;
+                    MenuUsuario menuU = new MenuUsuario(user);
+                    menuU.Show();
+                }
             }
             else
             {

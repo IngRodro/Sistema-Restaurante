@@ -1,4 +1,5 @@
 ﻿using SistemaRestaurante.Controladores;
+using SistemaRestaurante.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,18 +12,17 @@ using System.Windows.Forms;
 
 namespace SistemaRestaurante.Formularios
 {
-    public partial class frmInventario : Form
+    public partial class frmListaProd : Form
     {
-        public frmInventario()
+        public frmListaProd()
         {
             InitializeComponent();
         }
-        CAlmacen cAlmacen = new CAlmacen();
-        CProductosCompra cProductosCompra = new CProductosCompra();
-        private void frmInventario_Load(object sender, EventArgs e)
+
+        CProductosVenta cProductosVenta = new CProductosVenta();
+        private void frmListaProd_Load(object sender, EventArgs e)
         {
-            almacenBindingSource.DataSource = cAlmacen.Listado();
-            productosCompraBindingSource.DataSource = cProductosCompra.Listado();
+            productosVentaBindingSource1.DataSource = cProductosVenta.Listado();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

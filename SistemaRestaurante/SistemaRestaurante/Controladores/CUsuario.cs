@@ -64,6 +64,22 @@ namespace SistemaRestaurante.Controladores
             }
             return Nombre;
         }
+        public String Obtenerrol(String Usuario, String Password)
+        {
+            String rol = "";
+            for (int i = 0; i < mUsuario.Listado().Count(); i++)
+            {
+                Usuarios user = new Usuarios();
+                user = mUsuario.Listado()[i];
+                if (Usuario == user.nombredeUsuario && Password == user.contraseña)
+                {
+                    rol = user.rol;
+                    break;
+                }
+
+            }
+            return rol;
+        }
 
         internal void guardar(Usuarios U)
         {

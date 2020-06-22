@@ -89,6 +89,12 @@ namespace SistemaRestaurante.Formularios
             compras.detalles = listaDetalles.ToList();
             cCompra.guardarCompra(compras);
             MessageBox.Show("Compra Realizada con Exito");
+            this.Close();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

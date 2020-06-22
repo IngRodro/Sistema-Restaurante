@@ -83,6 +83,12 @@
     <Compile Include="Formularios\frmInventario.Designer.cs">
       <DependentUpon>frmInventario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmListaProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmListaProd.Designer.cs">
+      <DependentUpon>frmListaProd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmNuevaCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,12 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuUsuario.Designer.cs">
+      <DependentUpon>MenuUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\MAlmacen.cs" />
     <Compile Include="Modelos\MCompra.cs" />
     <Compile Include="Modelos\MDetallesCompra.cs" />
@@ -148,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmInventario.resx">
       <DependentUpon>frmInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmListaProd.resx">
+      <DependentUpon>frmListaProd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmNuevaCompra.resx">
       <DependentUpon>frmNuevaCompra.cs</DependentUpon>
@@ -172,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuUsuario.resx">
+      <DependentUpon>MenuUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
