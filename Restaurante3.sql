@@ -260,3 +260,47 @@ begin
 	Select MAX(idVenta) from Ventas
 end
 Go
+create
+
+create procedure sp_ListaDetalles
+@IdVenta int
+as
+begin
+	Select * from DetallesVenta where idVenta = @IdVenta
+end
+Go
+create procedure sp_ActualizarEstadoVenta
+@IdVenta int, @estado varchar(15)
+as
+begin
+	Update Ventas set estado = @estado where idVenta = @IdVenta
+end
+Go
+create procedure sp_ListaReceta
+@idProductoV int
+as
+begin
+	Select * from Recetas where idProductoV = @idProductoV
+end
+Go
+create procedure sp_nuevaReceta
+@idProductoV int, @idProductoC int, @cantidad int
+as
+begin
+	Insert into Recetas(idProductoV,idProductoC,cantidadEstimada) values(@idProductoV,@idProductoC,@cantidad)
+end
+Go
+create procedure sp_modificarReceta
+@idProductoC int, @cantidad int, @idProductoV int
+as
+begin
+	update Recetas set cantidadEstimada = @cantidad
+	where idProductoC = @idProductoC and idProductoV = @idProductoV
+end
+Go
+create procedure sp_eliminarReceta
+@idProductoC int, @idProductoV int
+as
+begin
+	delete Recetas where idProductoC = @idProductoC and idProductoV = @idProductoV
+end

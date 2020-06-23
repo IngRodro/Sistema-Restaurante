@@ -11,13 +11,15 @@ namespace SistemaRestaurante.Modelos
 {
     class MDetallesVenta
     {
-        public List<DetallesVenta> Listado()
+        public List<DetallesVenta> Listado(Ventas V)
         {
             IDbConnection con = Conexion.Conexion.Conectar();
-            String consulta = "Select * from DetallesVenta";
+            String consulta = "sp_ListaDetalles";
             List<DetallesVenta> listado = new List<DetallesVenta>();
+            DynamicParameters parametros = new DynamicParameters();
+            parametros.Add("@IdVenta", V.idVenta, DbType.Int32);
             con.Open();
-            listado = con.Query<DetallesVenta>(consulta).ToList();
+            listado = con.Query<DetallesVenta>(consulta, parametros, commandType: CommandType.StoredProcedure).ToList();
             con.Close();
             return listado;
         }

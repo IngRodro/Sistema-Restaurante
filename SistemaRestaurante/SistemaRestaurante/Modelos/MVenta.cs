@@ -14,7 +14,7 @@ namespace SistemaRestaurante.Modelos
         public List<Ventas> Listado()
         {
             IDbConnection con = Conexion.Conexion.Conectar();
-            String consulta = "Select * from Venta";
+            String consulta = "Select * from Ventas";
             List<Ventas> listado = new List<Ventas>();
             con.Open();
             listado = con.Query<Ventas>(consulta).ToList();
@@ -28,6 +28,18 @@ namespace SistemaRestaurante.Modelos
             DynamicParameters parametros = new DynamicParameters();
             parametros.Add("@totalaPagar", V.TotalPagar, DbType.Int32);
             parametros.Add("@nombredeUsuario", V.nombredeUsuario, DbType.String);
+            con.Open();
+            con.Execute(consulta, parametros, commandType: CommandType.StoredProcedure);
+            con.Close();
+        }
+
+        internal void actualizarestado(Ventas V)
+        {
+            IDbConnection con = Conexion.Conexion.Conectar();
+            String consulta = "sp_ActualizarEstadoVenta";
+            DynamicParameters parametros = new DynamicParameters();
+            parametros.Add("@IdVenta", V.idVenta, DbType.Int32);
+            parametros.Add("@estado", V.estado, DbType.String);
             con.Open();
             con.Execute(consulta, parametros, commandType: CommandType.StoredProcedure);
             con.Close();

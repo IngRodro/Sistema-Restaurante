@@ -31,6 +31,10 @@ namespace SistemaRestaurante.Controladores
             mVenta.procesarVenta(retornoId());
         }
 
+        internal void actualizarestado(Ventas V)
+        {
+            mVenta.actualizarestado(V);
+        }
         public int retornoId()
         {
             return mVenta.recibirIdV();

@@ -35,6 +35,7 @@
             this.nuevaCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +85,8 @@
             // ventasToolStripMenuItem
             // 
             this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevaVentaToolStripMenuItem});
+            this.nuevaVentaToolStripMenuItem,
+            this.listaVentasToolStripMenuItem});
             this.ventasToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(98, 35);
@@ -96,6 +98,13 @@
             this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(226, 36);
             this.nuevaVentaToolStripMenuItem.Text = "Nueva Venta";
             this.nuevaVentaToolStripMenuItem.Click += new System.EventHandler(this.nuevaVentaToolStripMenuItem_Click);
+            // 
+            // listaVentasToolStripMenuItem
+            // 
+            this.listaVentasToolStripMenuItem.Name = "listaVentasToolStripMenuItem";
+            this.listaVentasToolStripMenuItem.Size = new System.Drawing.Size(226, 36);
+            this.listaVentasToolStripMenuItem.Text = "Lista Ventas";
+            this.listaVentasToolStripMenuItem.Click += new System.EventHandler(this.listaVentasToolStripMenuItem_Click);
             // 
             // productosToolStripMenuItem
             // 
@@ -187,5 +196,6 @@
         private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevaCompraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevaVentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaVentasToolStripMenuItem;
     }
 }

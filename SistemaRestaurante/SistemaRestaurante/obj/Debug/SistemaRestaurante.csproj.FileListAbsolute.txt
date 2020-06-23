@@ -42,3 +42,5 @@ C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurant
 C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.Formularios.frmInventario.resources
 C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.MenuUsuario.resources
 C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.Formularios.frmListaProd.resources
+C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.frmListaVentas.resources
+C:\Users\Usuario\Documents\GitHub\SistemaBD\SistemaRestaurante\SistemaRestaurante\obj\Debug\SistemaRestaurante.Formularios.frmDetallesVenta.resources

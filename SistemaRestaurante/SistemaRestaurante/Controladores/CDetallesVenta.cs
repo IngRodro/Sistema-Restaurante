@@ -11,9 +11,9 @@ namespace SistemaRestaurante.Controladores
     class CDetallesVenta
     {
         MDetallesVenta mDetalles = new MDetallesVenta();
-        public List<DetallesVenta> Listado()
+        public List<DetallesVenta> Listado(Ventas V)
         {
-            return mDetalles.Listado();
+            return mDetalles.Listado(V);
         }
         internal void guardarDetallesCompra(DetallesVenta DV)
         {

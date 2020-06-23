@@ -70,7 +70,15 @@ namespace SistemaRestaurante
         private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmInventario FrmInventario = new frmInventario();
+            FrmInventario.MdiParent = this;
             FrmInventario.Show();
+        }
+
+        private void listaVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListaVentas frmListaV = new frmListaVentas();
+            frmListaV.MdiParent = this;
+            frmListaV.Show();
         }
     }
 }
