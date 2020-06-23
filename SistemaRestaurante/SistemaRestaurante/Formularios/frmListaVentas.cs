@@ -28,9 +28,12 @@ namespace SistemaRestaurante
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            ventas = (Ventas)ventasBindingSource.Current;
-            frmDetallesVenta frmDetalles = new frmDetallesVenta(ventas);
-            frmDetalles.Show();
+            if (ventasBindingSource.Count >0)
+            {
+                ventas = (Ventas)ventasBindingSource.Current;
+                frmDetallesVenta frmDetalles = new frmDetallesVenta(ventas);
+                frmDetalles.Show();
+            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

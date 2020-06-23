@@ -23,18 +23,19 @@ namespace SistemaRestaurante
         {
             IsMdiContainer = true;
         }
-        public static Logueo logueo = new Logueo();
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            Logueo logueo = new Logueo();
             if (MessageBox.Show("¿Estás seguro que desea cerrar sesion?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 this.Close();
                 logueo.Show();
             }
         }
-        public static frmProductosVenta fProductos = new frmProductosVenta();
+        
         private void productosVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmProductosVenta fProductos = new frmProductosVenta();
             fProductos.MdiParent = this;
             fProductos.Show();
         }

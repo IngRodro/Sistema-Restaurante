@@ -19,14 +19,16 @@ Create table Proveedores(
 	nombre varchar(50),
 	ubicacion varchar(60),
 	telefono varchar(15),
-	email varchar(30)
+	email varchar(30),
+	estado varchar(15)
 );
 Go
 Create table ProductosVenta(
 	idProductoV int identity(1,1) primary key not null,
 	nombre varchar(25),
 	precio money,
-	categoria varchar(20)
+	categoria varchar(20),
+	estado varchar(15)
 );
 Go
 Create table ProductosCompra(
@@ -34,8 +36,9 @@ Create table ProductosCompra(
 	nombre varchar(25),
 	precio money,
 	categoria varchar(20),
-	idProveedor int foreign key references Proveedores(idProveedor)
-);
+	idProveedor int foreign key references Proveedores(idProveedor),
+	estado varchar(15)
+	);
 Go
 Create table Ventas(
 	idVenta int identity(1,1) primary key not null,
@@ -48,7 +51,7 @@ Go
 Create table DetallesVenta(
 	idDetallesV int identity(1,1) primary key not null,
 	idProductoV int foreign key references ProductosVenta(idProductoV),
-	precioCompra money,
+	precioventa money,
 	cantidad int,
 	totalProducto money,
 	idVenta int foreign key references Ventas(idVenta)
@@ -74,8 +77,7 @@ Go
 Create table Almacen(
 idAlmacen int identity(1,1) primary key not null,
 idProductoC int foreign key references ProductosCompra(idProductoC),
-cantidadDisponible float,
-unidad varchar(20)
+cantidadDisponible float
 );
 Go
 Create table Recetas(

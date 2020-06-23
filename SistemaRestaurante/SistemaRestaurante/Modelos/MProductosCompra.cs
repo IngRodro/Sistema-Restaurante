@@ -14,10 +14,10 @@ namespace SistemaRestaurante.Modelos
         public List<ProductosCompra> Listado()
         {
             IDbConnection con = Conexion.Conexion.Conectar();
-            String consulta = "Select * from ProductosCompra";
+            String consulta = "sp_ListaProductoC";
             List<ProductosCompra> listado = new List<ProductosCompra>();
             con.Open();
-            listado = con.Query<ProductosCompra>(consulta).ToList();
+            listado = con.Query<ProductosCompra>(consulta, commandType: CommandType.StoredProcedure).ToList();
             con.Close();
             return listado;
         }

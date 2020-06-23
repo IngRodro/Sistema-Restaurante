@@ -41,10 +41,17 @@ namespace SistemaRestaurante.Formularios
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            proveedoresBindingSource1.EndEdit();
-            proveedores = (Proveedores)proveedoresBindingSource1.Current;
-            cProveedor.guardarProveedor(proveedores);
-            cargarDatos();
+            if (nombreTextBox.Text.Equals("") || telefonoTextBox.Text.Equals("") || emailTextBox.Text.Equals("") || ubicacionDataGridViewTextBoxColumn.Text.Equals(""))
+            {
+                MessageBox.Show("Ingrese todos los campos para Continuar");
+            }
+            else
+            {
+                proveedoresBindingSource1.EndEdit();
+                proveedores = (Proveedores)proveedoresBindingSource1.Current;
+                cProveedor.guardarProveedor(proveedores);
+                cargarDatos();
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

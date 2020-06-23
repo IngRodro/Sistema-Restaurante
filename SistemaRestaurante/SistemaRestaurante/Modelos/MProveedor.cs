@@ -14,10 +14,10 @@ namespace SistemaRestaurante.Modelos
         public List<Proveedores> Listado()
         {
             IDbConnection con = Conexion.Conexion.Conectar();
-            String consulta = "Select * from Proveedores";
+            String consulta = "sp_ListaProveedores";
             List<Proveedores> listado = new List<Proveedores>();
             con.Open();
-            listado = con.Query<Proveedores>(consulta).ToList();
+            listado = con.Query<Proveedores>(consulta, commandType: CommandType.StoredProcedure).ToList();
             con.Close();
             return listado;
         }

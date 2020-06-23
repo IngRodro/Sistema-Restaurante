@@ -49,10 +49,17 @@ namespace SistemaRestaurante.Formularios
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            productosCompraBindingSource.EndEdit();
-            productosCompra = (ProductosCompra)productosCompraBindingSource.Current;
-            cProductosCompra.guardarProductoC(productosCompra);
-            cargarDatos();
+            if (nombreTextBox.Text.Equals("") || precioTextBox.Text.Equals("0") || idProveedorComboBox.SelectedValue == null || categoriaTextBox.Text.Equals(""))
+            {
+                MessageBox.Show("Ingrese todos los campos para Continuar");
+            }
+            else
+            {
+                productosCompraBindingSource.EndEdit();
+                productosCompra = (ProductosCompra)productosCompraBindingSource.Current;
+                cProductosCompra.guardarProductoC(productosCompra);
+                cargarDatos();
+            }
         }
 
         private void productosVentaDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -55,10 +55,17 @@ namespace SistemaRestaurante.Formularios
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            productosVentaBindingSource.EndEdit();
-            productosVenta = (ProductosVenta)productosVentaBindingSource.Current;
-            cProductosVenta.guardarProductoV(productosVenta);
-            cargarDatos();
+            if (nombreTextBox.Text.Equals("") || precioTextBox.Text.Equals("0")  || categoriaTextBox.Text.Equals(""))
+            {
+                MessageBox.Show("Ingrese todos los campos para Continuar");
+            }
+            else
+            {
+                productosVentaBindingSource.EndEdit();
+                productosVenta = (ProductosVenta)productosVentaBindingSource.Current;
+                cProductosVenta.guardarProductoV(productosVenta);
+                cargarDatos();
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

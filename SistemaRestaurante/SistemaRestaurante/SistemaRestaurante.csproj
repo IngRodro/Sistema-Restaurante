@@ -131,10 +131,10 @@
     <Compile Include="Formularios\frmRecetas.Designer.cs">
       <DependentUpon>frmRecetas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListaVentas.cs">
+    <Compile Include="Formularios\frmListaVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListaVentas.Designer.cs">
+    <Compile Include="Formularios\frmListaVentas.Designer.cs">
       <DependentUpon>frmListaVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="Logueo.cs">
@@ -197,7 +197,7 @@
     <EmbeddedResource Include="Formularios\frmRecetas.resx">
       <DependentUpon>frmRecetas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListaVentas.resx">
+    <EmbeddedResource Include="Formularios\frmListaVentas.resx">
       <DependentUpon>frmListaVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Logueo.resx">
