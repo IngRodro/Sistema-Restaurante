@@ -44,3 +44,7 @@ insert into Almacen (idProductoC, cantidadDisponible) values (6,100)
 insert into Almacen (idProductoC, cantidadDisponible) values (7,100)
 insert into Almacen (idProductoC, cantidadDisponible) values (8,100)
 insert into Almacen (idProductoC, cantidadDisponible) values (9,100)
+
+Update ProductosCompra set estado = 'Activo'
+Update Proveedores set estado = 'Activo'
+Update ProductosVenta set estado = 'Activo'
