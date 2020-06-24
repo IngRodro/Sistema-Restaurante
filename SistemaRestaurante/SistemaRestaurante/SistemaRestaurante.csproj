@@ -80,10 +80,10 @@
     <Compile Include="Entidades\Recetas.cs" />
     <Compile Include="Entidades\Usuarios.cs" />
     <Compile Include="Entidades\Ventas.cs" />
-    <Compile Include="FNuevoUsuario.cs">
+    <Compile Include="Formularios\FNuevoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FNuevoUsuario.Designer.cs">
+    <Compile Include="Formularios\FNuevoUsuario.Designer.cs">
       <DependentUpon>FNuevoUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmDetallesVenta.cs">
@@ -146,22 +146,22 @@
     <Compile Include="Formularios\frmListaVentas.Designer.cs">
       <DependentUpon>frmListaVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logueo.cs">
+    <Compile Include="Formularios\Logueo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Logueo.Designer.cs">
+    <Compile Include="Formularios\Logueo.Designer.cs">
       <DependentUpon>Logueo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="Formularios\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="Formularios\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuUsuario.cs">
+    <Compile Include="Formularios\MenuUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuUsuario.Designer.cs">
+    <Compile Include="Formularios\MenuUsuario.Designer.cs">
       <DependentUpon>MenuUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\MAlmacen.cs" />
@@ -176,7 +176,7 @@
     <Compile Include="Modelos\MVenta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FNuevoUsuario.resx">
+    <EmbeddedResource Include="Formularios\FNuevoUsuario.resx">
       <DependentUpon>FNuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmDetallesVenta.resx">
@@ -209,13 +209,13 @@
     <EmbeddedResource Include="Formularios\frmListaVentas.resx">
       <DependentUpon>frmListaVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Logueo.resx">
+    <EmbeddedResource Include="Formularios\Logueo.resx">
       <DependentUpon>Logueo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
+    <EmbeddedResource Include="Formularios\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuUsuario.resx">
+    <EmbeddedResource Include="Formularios\MenuUsuario.resx">
       <DependentUpon>MenuUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
