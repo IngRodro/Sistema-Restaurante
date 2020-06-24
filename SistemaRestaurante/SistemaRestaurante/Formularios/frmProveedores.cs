@@ -41,7 +41,7 @@ namespace SistemaRestaurante.Formularios
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (nombreTextBox.Text.Equals("") || telefonoTextBox.Text.Equals("") || emailTextBox.Text.Equals("") || ubicacionDataGridViewTextBoxColumn.Text.Equals(""))
+            if (nombreTextBox.Text.Equals("") || telefonoTextBox.Text.Equals("") || emailTextBox.Text.Equals("") || UbicacionTextBox.Text.Equals(""))
             {
                 MessageBox.Show("Ingrese todos los campos para Continuar");
             }

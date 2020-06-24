@@ -10,7 +10,7 @@ namespace SistemaRestaurante.Entidades
     {
         public int idDetalleV { get; set; }
         public int idProductoV { get; set; }
-        public double precioventa { get; set; }
+        public float precioventa { get; set; }
         public int cantidad { get; set; }
         public float totalProducto { get; set; }
         public int idVenta { get; set; }
