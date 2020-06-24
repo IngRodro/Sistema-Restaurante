@@ -33,7 +33,7 @@ namespace SistemaRestaurante
             Usuarios usuarios = new Usuarios();
             usuarios = (Usuarios)usuariosBindingSource.Current;
             CUsuario cUsuario = new CUsuario();
-            if (telefonoTextBox.Equals("") || nombredeUsuarioTextBox.Equals("") || nombredeUsuarioTextBox.Equals("") || edadTextBox.Equals("0") || contraseñaTextBox.Equals("") || emailTextBox.Equals("") || rolComboBox.SelectedValue == null)
+            if (telefonoTextBox.Equals("") || nombredeUsuarioTextBox.Equals("") || nombredeUsuarioTextBox.Equals("") || edadTextBox.Equals("0") || contraseñaTextBox.Equals("") || emailTextBox.Equals(""))
             {
                 MessageBox.Show("Ingrese todos los Datos");
             }
