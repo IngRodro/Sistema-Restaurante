@@ -376,6 +376,7 @@
             this.Controls.Add(totalProductoLabel);
             this.Controls.Add(this.totalProductoTextBox);
             this.Name = "frmNuevaCompra";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.frmNuevaCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.detallesCompraBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosCompraBindingSource)).EndInit();

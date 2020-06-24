@@ -45,8 +45,8 @@ namespace SistemaRestaurante.Formularios
         }
         private void frmNuevaCompra_Load(object sender, EventArgs e)
         {
-            proveedoresBindingSource.DataSource = cProveedor.Listado();
-            productosCompraBindingSource1.DataSource = cProductosCompra.Listado();
+            proveedoresBindingSource.DataSource = cProveedor.ListadoActivos();
+            productosCompraBindingSource1.DataSource = cProductosCompra.ListadoActivos();
         }
 
         private void idProveedorComboBox_SelectedIndexChanged(object sender, EventArgs e)

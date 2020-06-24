@@ -11,9 +11,9 @@ namespace SistemaRestaurante.Controladores
     class CProductosVenta
     {
         MProductoVenta mProductoVenta = new MProductoVenta();
-        public List<ProductosVenta> Listado()
+        public List<ProductosVenta> ListadoActivos()
         {
-            return mProductoVenta.Listado();
+            return mProductoVenta.ListadoActivos();
         }
         internal void guardarProductoV(ProductosVenta PV)
         {
@@ -28,20 +28,9 @@ namespace SistemaRestaurante.Controladores
             mProductoVenta.eliminarProductoV(PV);
         }
 
-        public double obtenerPrecioCompra(int IdProductoC)
+        public List<ProductosVenta> Listado()
         {
-            double precio = 0;
-            for (int i = 0; i < Listado().Count; i++)
-            {
-                ProductosVenta productosVenta = new ProductosVenta();
-                productosVenta = Listado()[i];
-                if (productosVenta.idProductoV == IdProductoC)
-                {
-                    precio = productosVenta.precio;
-                }
-            }
-
-            return precio;
+            return mProductoVenta.Listado();
         }
     }
 }

@@ -38,8 +38,8 @@ namespace SistemaRestaurante.Formularios
         }
         private void frmNuevaVenta_Load(object sender, EventArgs e)
         {
-            productosVentaBindingSource1.DataSource = cProductosCompra.Listado();
-            productosVentaBindingSource.DataSource = cProductosCompra.Listado();
+            productosVentaBindingSource1.DataSource = cProductosCompra.ListadoActivos();
+            productosVentaBindingSource.DataSource = cProductosCompra.ListadoActivos();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

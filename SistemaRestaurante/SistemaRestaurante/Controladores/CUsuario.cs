@@ -11,10 +11,7 @@ namespace SistemaRestaurante.Controladores
     class CUsuario
     {
         MUsuario mUsuario = new MUsuario();
-        public List<Usuarios> Listado()
-        {
-            return mUsuario.Listado();
-        }
+
         public Boolean verificarexistencia(String Usuario)
         {
             Boolean usuarioC = false;

@@ -38,8 +38,8 @@ namespace SistemaRestaurante.Formularios
 
         internal void cargarDatos()
         {
-            proveedoresBindingSource.DataSource = cProveedor.Listado();
-            productosCompraBindingSource1.DataSource = cProductosCompra.Listado();
+            proveedoresBindingSource.DataSource = cProveedor.ListadoActivos();
+            productosCompraBindingSource1.DataSource = cProductosCompra.ListadoActivos();
             proveedoresBindingSource1.DataSource = cProveedor.Listado();
         }
         private void btnCerrar_Click(object sender, EventArgs e)

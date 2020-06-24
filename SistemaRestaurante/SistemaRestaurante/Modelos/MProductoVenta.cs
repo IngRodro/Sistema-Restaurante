@@ -11,7 +11,7 @@ namespace SistemaRestaurante.Modelos
 {
     class MProductoVenta
     {
-        public List<ProductosVenta> Listado()
+        public List<ProductosVenta> ListadoActivos()
         {
             IDbConnection con = Conexion.Conexion.Conectar();
             String consulta = "sp_ListaProductoV";
@@ -57,6 +57,17 @@ namespace SistemaRestaurante.Modelos
             con.Open();
             con.Execute(consulta, parametros, commandType: CommandType.StoredProcedure);
             con.Close();
+        }
+
+        public List<ProductosVenta> Listado()
+        {
+            IDbConnection con = Conexion.Conexion.Conectar();
+            String consulta = "Select * from ProductosVenta";
+            List<ProductosVenta> listado = new List<ProductosVenta>();
+            con.Open();
+            listado = con.Query<ProductosVenta>(consulta).ToList();
+            con.Close();
+            return listado;
         }
     }
 }

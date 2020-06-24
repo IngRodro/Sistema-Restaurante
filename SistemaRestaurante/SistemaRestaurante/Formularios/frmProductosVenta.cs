@@ -38,7 +38,7 @@ namespace SistemaRestaurante.Formularios
         }
         internal void cargarDatos()
         {
-            productosVentaBindingSource1.DataSource = cProductosVenta.Listado();
+            productosVentaBindingSource1.DataSource = cProductosVenta.ListadoActivos();
         }
 
 
@@ -99,6 +99,7 @@ namespace SistemaRestaurante.Formularios
             ProductosVenta productosV = new ProductosVenta();
             productosV = (ProductosVenta)productosVentaBindingSource1.Current;
             frmRecetas frmReceta = new frmRecetas(productosV);
+            frmReceta.MdiParent = this.MdiParent;
             frmReceta.Show();
         }
     }

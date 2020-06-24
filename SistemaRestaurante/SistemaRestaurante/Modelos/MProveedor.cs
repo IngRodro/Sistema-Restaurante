@@ -11,7 +11,7 @@ namespace SistemaRestaurante.Modelos
 {
     class MProveedor
     {
-        public List<Proveedores> Listado()
+        public List<Proveedores> ListadoActivos()
         {
             IDbConnection con = Conexion.Conexion.Conectar();
             String consulta = "sp_ListaProveedores";
@@ -59,6 +59,17 @@ namespace SistemaRestaurante.Modelos
             con.Open();
             con.Execute(consulta, parametros, commandType: CommandType.StoredProcedure);
             con.Close();
+        }
+
+        public List<Proveedores> Listado()
+        {
+            IDbConnection con = Conexion.Conexion.Conectar();
+            String consulta = "Select * from Proveedores";
+            List<Proveedores> listado = new List<Proveedores>();
+            con.Open();
+            listado = con.Query<Proveedores>(consulta).ToList();
+            con.Close();
+            return listado;
         }
     }
 }

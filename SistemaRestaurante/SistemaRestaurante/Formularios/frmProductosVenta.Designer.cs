@@ -350,6 +350,7 @@
             this.Controls.Add(this.productosVentaDataGridView);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "frmProductosVenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             ((System.ComponentModel.ISupportInitialize)(this.productosVentaDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosVentaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosVentaBindingSource)).EndInit();

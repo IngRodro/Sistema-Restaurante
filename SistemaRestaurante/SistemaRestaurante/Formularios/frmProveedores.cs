@@ -36,7 +36,7 @@ namespace SistemaRestaurante.Formularios
         }
         internal void cargarDatos()
         {
-            proveedoresBindingSource.DataSource = cProveedor.Listado();
+            proveedoresBindingSource.DataSource = cProveedor.ListadoActivos();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

@@ -32,6 +32,7 @@ namespace SistemaRestaurante
             {
                 ventas = (Ventas)ventasBindingSource.Current;
                 frmDetallesVenta frmDetalles = new frmDetallesVenta(ventas);
+                frmDetalles.MdiParent = this.MdiParent;
                 frmDetalles.Show();
             }
         }

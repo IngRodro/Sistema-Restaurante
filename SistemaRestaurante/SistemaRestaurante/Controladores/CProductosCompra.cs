@@ -11,9 +11,9 @@ namespace SistemaRestaurante.Controladores
     class CProductosCompra
     {
         MProductosCompra mProductoCompra = new MProductosCompra();
-        public List<ProductosCompra> Listado()
+        public List<ProductosCompra> ListadoActivos()
         {
-            return mProductoCompra.Listado();
+            return mProductoCompra.ListadoActivos();
         }
 
         public List<ProductosCompra> ListaProductosCProveedor(int idProveedor)
@@ -33,6 +33,9 @@ namespace SistemaRestaurante.Controladores
         {
             mProductoCompra.eliminarProductoC(PC);
         }
-
+        public List<ProductosCompra> Listado()
+        {
+            return mProductoCompra.Listado();
+        }
     }
 }

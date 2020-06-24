@@ -1,3 +1,5 @@
+
+--Registrar Usuario
 create procedure sp_registrarUsuario
 @nombreUsuario varchar(30), @nombre varchar(50), @edad int, @telefono varchar(15), @email varchar(50), @contraseña varchar(64), @rol varchar(20)
 as
@@ -5,6 +7,8 @@ begin
 	Insert into Usuarios(nombredeUsuario,nombre,edad,telefono,email,contraseña,rol) values (@nombreUsuario,@nombre,@edad,@telefono,@email,@contraseña,@rol)
 end
 Go
+
+--Guardar Nuevo Producto Venta
 create procedure sp_nuevoProductoVenta
 @nombre varchar(25), @precio money, @categoria varchar(20)
 as
@@ -12,6 +16,8 @@ begin
 	Insert into ProductosVenta(nombre,precio,categoria,estado) values(@nombre,@precio,@categoria, 'Activo')
 end
 Go
+
+--Modificar Producto Venta
 create procedure sp_modificarProductoVenta
 @idProductoV int, @nombre varchar(25), @precio money, @categoria varchar(20)
 as
@@ -20,6 +26,8 @@ begin
 	where idProductoV = @idProductoV
 end
 Go
+
+--Eliminar Producto Venta
 create procedure sp_eliminarProductoVenta
 @idProductoV int
 as
@@ -27,6 +35,8 @@ begin
 	Update ProductosVenta set estado = 'Inactivo' where idProductoV = @idProductoV
 end
 Go
+
+
 create procedure sp_nuevoProductoCompra
 @nombre varchar(25), @precio money, @categoria varchar(20), @idProveedor int
 as
@@ -34,6 +44,8 @@ begin
 	Insert into ProductosCompra(nombre,precio,categoria, idProveedor,estado) values(@nombre,@precio,@categoria, @idProveedor,'Activo')
 end
 Go
+
+
 create procedure sp_modificarProductoCompra
 @idProductoC int, @nombre varchar(25), @precio money, @categoria varchar(20), @idProveedor int
 as
@@ -42,6 +54,8 @@ begin
 	where idProductoC = @idProductoC
 end
 Go
+
+
 create procedure sp_eliminarProductoCompra
 @idProductoC int
 as
@@ -49,6 +63,8 @@ begin
 	update ProductosCompra set estado = 'Inactivo' where idProductoC = @idProductoC
 end
 Go
+
+
 create procedure sp_nuevoProveedor
 @nombre varchar(25), @ubicacion varchar(60), @telefono varchar(15), @email varchar(30)
 as
@@ -56,6 +72,8 @@ begin
 	Insert into Proveedores(nombre,ubicacion,telefono,email, estado) values(@nombre,@ubicacion,@telefono, @email, 'Activo')
 end
 Go
+
+
 create procedure sp_modificarProveedor
 @idProveedor int, @nombre varchar(25), @ubicacion varchar(60), @telefono varchar(15), @email varchar(30)
 as
@@ -64,6 +82,8 @@ begin
 	where idProveedor = @idProveedor
 end
 Go
+
+
 create procedure sp_eliminarProveedor
 @idProveedor int
 as
@@ -71,6 +91,8 @@ begin
 	Update Proveedores set estado = 'Inactivo' where idProveedor = @idProveedor
 end
 Go
+
+
 create procedure sp_nuevaVenta
 @totalaPagar money, @nombredeUsuario varchar(30)
 as
@@ -80,6 +102,8 @@ begin
 	Insert into Ventas(fechadeVenta,totalPagar,estado,nombredeUsuario) values(@fecha,@totalaPagar,'Enviada',@nombredeUsuario)
 end
 Go
+
+
 create procedure sp_nuevoDetalleV
 @idProductoV int, @precioVenta money, @cantidad int, @idVenta int
 as
@@ -90,14 +114,8 @@ begin
 	values(@idProductoV,@precioVenta, @cantidad,@totalProducto,@idVenta)
 end
 Go
-create procedure sp_eliminarVenta
-@idVenta int
-as
-begin
-	Delete DetallesVenta where idVenta = @idVenta
-	Delete Ventas where idVenta = @idVenta
-end
-Go
+
+
 create procedure sp_nuevaCompra
 @totalaPagar money, @nombredeUsuario varchar(30), @idProveedor int
 as
@@ -107,6 +125,8 @@ begin
 	Insert into Compras(fechadeCompra,totalaPagar,idProveedor,nombredeUsuario) values(@fecha,@totalaPagar,@idProveedor,@nombredeUsuario)
 end
 Go
+
+
 create procedure sp_nuevoDetalleC
 @idProductoC int, @precioCompra money, @cantidad int, @idCompra int
 as
@@ -117,6 +137,8 @@ begin
 	values(@idProductoC,@precioCompra, @cantidad,@totalProducto,@idCompra)
 end
 Go
+
+
 create procedure sp_RecibirCompra
 @idCompra int
 as
@@ -171,6 +193,8 @@ begin
 		--actualizar la orden a recibida
 end
 Go
+
+
 create procedure sp_idUltimaCompra
 as
 begin
@@ -184,14 +208,13 @@ begin
 	Select * from ProductosCompra where idProveedor = @idProveedor
 end
 Go
+
+
 create procedure sp_RecibirVenta
 @idVenta int
 as
 begin
-
 --validar si la  orden ya fue recibida
-
-
 	--Crear la tabla temporal
 		drop table if exists #procesarorden;
 
@@ -254,12 +277,15 @@ begin
 end
 Go
 
+
 create procedure sp_ultimaVenta
 as
 begin
 	Select MAX(idVenta) from Ventas
 end
 Go
+
+
 create procedure sp_ListaDetalles
 @IdVenta int
 as
@@ -267,6 +293,8 @@ begin
 	Select * from DetallesVenta where idVenta = @IdVenta
 end
 Go
+
+
 create procedure sp_ActualizarEstadoVenta
 @IdVenta int, @estado varchar(15)
 as
@@ -274,6 +302,8 @@ begin
 	Update Ventas set estado = @estado where idVenta = @IdVenta
 end
 Go
+
+
 create procedure sp_ListaReceta
 @idProductoV int
 as
@@ -281,6 +311,8 @@ begin
 	Select * from Recetas where idProductoV = @idProductoV
 end
 Go
+
+
 create procedure sp_nuevaReceta
 @idProductoV int, @idProductoC int, @cantidad int
 as
@@ -288,6 +320,8 @@ begin
 	Insert into Recetas(idProductoV,idProductoC,cantidadEstimada) values(@idProductoV,@idProductoC,@cantidad)
 end
 Go
+
+
 create procedure sp_modificarReceta
 @idProductoC int, @cantidad int, @idProductoV int
 as
@@ -296,6 +330,8 @@ begin
 	where idProductoC = @idProductoC and idProductoV = @idProductoV
 end
 Go
+
+
 create procedure sp_eliminarReceta
 @idProductoC int, @idProductoV int
 as
@@ -303,18 +339,24 @@ begin
 	delete Recetas where idProductoC = @idProductoC and idProductoV = @idProductoV
 end
 Go
+
+
 create procedure sp_ListaProductoC
 as
 begin
 	Select idProductoC, nombre, precio, categoria, idProveedor from ProductosCompra where estado = 'Activo'
 end
 Go
+
+
 create procedure sp_ListaProductoV
 as
 begin
 	Select idProductoV, nombre, precio, categoria from ProductosVenta where estado = 'Activo'
 end
 Go
+
+
 create procedure sp_ListaProveedores
 as
 begin

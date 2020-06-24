@@ -11,9 +11,9 @@ namespace SistemaRestaurante.Controladores
     class CProveedor
     {
         MProveedor mProveedor = new MProveedor();
-        public List<Proveedores> Listado()
+        public List<Proveedores> ListadoActivos()
         {
-            return mProveedor.Listado();
+            return mProveedor.ListadoActivos();
         }
         internal void guardarProveedor(Proveedores P)
         {
@@ -26,6 +26,10 @@ namespace SistemaRestaurante.Controladores
         internal void eliminarProveedor(Proveedores P)
         {
             mProveedor.eliminarProveedor(P);
+        }
+        public List<Proveedores> Listado()
+        {
+            return mProveedor.Listado();
         }
     }
 }

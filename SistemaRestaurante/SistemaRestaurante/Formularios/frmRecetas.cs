@@ -28,7 +28,7 @@ namespace SistemaRestaurante.Formularios
         {
             productosVentaBindingSource.DataSource = productosV;
             recetasBindingSource.DataSource = cRecetas.Listado(productosV.idProductoV);
-            productosCompraBindingSource1.DataSource = cProductos.Listado();
+            productosCompraBindingSource1.DataSource = cProductos.ListadoActivos();
             productosCompraBindingSource.DataSource = cProductos.Listado();
             idProductoCComboBox.Enabled = false;
             cantidadEstimadaTextBox.Enabled = false;

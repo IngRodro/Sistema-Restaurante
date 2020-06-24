@@ -22,7 +22,7 @@ namespace SistemaRestaurante.Formularios
         CProductosVenta cProductosVenta = new CProductosVenta();
         private void frmListaProd_Load(object sender, EventArgs e)
         {
-            productosVentaBindingSource1.DataSource = cProductosVenta.Listado();
+            productosVentaBindingSource1.DataSource = cProductosVenta.ListadoActivos();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

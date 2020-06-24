@@ -35,25 +35,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.idVentaTextBox = new System.Windows.Forms.TextBox();
+            this.ventasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.totalPagarTextBox = new System.Windows.Forms.TextBox();
             this.detallesVentaDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.productosVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detallesVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fechaTextBox = new System.Windows.Forms.TextBox();
             this.btnRecibida = new System.Windows.Forms.Button();
             this.btnEntregada = new System.Windows.Forms.Button();
             this.btnPagada = new System.Windows.Forms.Button();
-            this.ventasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.productosVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detallesVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnCerrar = new System.Windows.Forms.Button();
             fechaLabel = new System.Windows.Forms.Label();
             idVentaLabel = new System.Windows.Forms.Label();
             totalPagarLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.detallesVentaDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detallesVentaDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosVentaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detallesVentaBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -102,6 +101,10 @@
             this.idVentaTextBox.Size = new System.Drawing.Size(200, 26);
             this.idVentaTextBox.TabIndex = 6;
             // 
+            // ventasBindingSource
+            // 
+            this.ventasBindingSource.DataSource = typeof(SistemaRestaurante.Entidades.Ventas);
+            // 
             // totalPagarTextBox
             // 
             this.totalPagarTextBox.BackColor = System.Drawing.Color.Black;
@@ -130,7 +133,6 @@
             this.detallesVentaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.detallesVentaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.detallesVentaDataGridView.DataSource = this.detallesVentaBindingSource;
@@ -144,6 +146,38 @@
             this.detallesVentaDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.detallesVentaDataGridView.Size = new System.Drawing.Size(670, 220);
             this.detallesVentaDataGridView.TabIndex = 10;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "idProductoV";
+            this.dataGridViewTextBoxColumn2.DataSource = this.productosVentaBindingSource;
+            this.dataGridViewTextBoxColumn2.DisplayMember = "nombre";
+            this.dataGridViewTextBoxColumn2.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Producto";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn2.ValueMember = "idProductoV";
+            // 
+            // productosVentaBindingSource
+            // 
+            this.productosVentaBindingSource.DataSource = typeof(SistemaRestaurante.Entidades.ProductosVenta);
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "cantidad";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Cantidad";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "totalProducto";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Total";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // detallesVentaBindingSource
+            // 
+            this.detallesVentaBindingSource.DataSource = typeof(SistemaRestaurante.Entidades.DetallesVenta);
             // 
             // fechaTextBox
             // 
@@ -195,48 +229,6 @@
             this.btnPagada.UseVisualStyleBackColor = true;
             this.btnPagada.Click += new System.EventHandler(this.btnPagada_Click);
             // 
-            // ventasBindingSource
-            // 
-            this.ventasBindingSource.DataSource = typeof(SistemaRestaurante.Entidades.Ventas);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "idProductoV";
-            this.dataGridViewTextBoxColumn2.DataSource = this.productosVentaBindingSource;
-            this.dataGridViewTextBoxColumn2.DisplayMember = "nombre";
-            this.dataGridViewTextBoxColumn2.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Producto";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn2.ValueMember = "idProductoV";
-            // 
-            // productosVentaBindingSource
-            // 
-            this.productosVentaBindingSource.DataSource = typeof(SistemaRestaurante.Entidades.ProductosVenta);
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "precioVenta";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Precio";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "cantidad";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Cantidad";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "totalProducto";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Total";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // detallesVentaBindingSource
-            // 
-            this.detallesVentaBindingSource.DataSource = typeof(SistemaRestaurante.Entidades.DetallesVenta);
-            // 
             // btnCerrar
             // 
             this.btnCerrar.BackgroundImage = global::SistemaRestaurante.Properties.Resources._61155;
@@ -270,9 +262,10 @@
             this.Controls.Add(totalPagarLabel);
             this.Controls.Add(this.totalPagarTextBox);
             this.Name = "frmDetallesVenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.frmDetallesVenta_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.detallesVentaDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detallesVentaDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosVentaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detallesVentaBindingSource)).EndInit();
             this.ResumeLayout(false);
