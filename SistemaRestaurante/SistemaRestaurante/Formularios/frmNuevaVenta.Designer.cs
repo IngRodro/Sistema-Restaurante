@@ -215,6 +215,7 @@
             this.cantidadTextBox.Name = "cantidadTextBox";
             this.cantidadTextBox.Size = new System.Drawing.Size(156, 26);
             this.cantidadTextBox.TabIndex = 5;
+            this.cantidadTextBox.TextChanged += new System.EventHandler(this.cantidadTextBox_TextChanged);
             // 
             // detallesVentaBindingSource1
             // 
@@ -234,7 +235,7 @@
             // totalProductoTextBox
             // 
             this.totalProductoTextBox.BackColor = System.Drawing.Color.Black;
-            this.totalProductoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.detallesVentaBindingSource1, "totalProducto", true));
+            this.totalProductoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.detallesVentaBindingSource1, "totalProducto", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.totalProductoTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalProductoTextBox.ForeColor = System.Drawing.Color.White;
             this.totalProductoTextBox.Location = new System.Drawing.Point(413, 88);
@@ -326,7 +327,7 @@
             this.Controls.Add(totalPagarLabel);
             this.Controls.Add(this.totalPagarTextBox);
             this.Name = "frmNuevaVenta";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmNuevaVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ventasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detallesVentaBindingSource)).EndInit();

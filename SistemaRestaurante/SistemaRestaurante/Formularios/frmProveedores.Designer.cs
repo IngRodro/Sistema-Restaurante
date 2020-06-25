@@ -372,7 +372,7 @@
             this.Controls.Add(this.UbicacionTextBox);
             this.Controls.Add(this.productosVentaDataGridView);
             this.Name = "frmProveedores";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosVentaDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).EndInit();

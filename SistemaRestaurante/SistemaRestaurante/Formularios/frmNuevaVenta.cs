@@ -55,6 +55,10 @@ namespace SistemaRestaurante.Formularios
                 if (cDetalles.verificarIngredientes(detalles) == true)
                 {
                     listaDetalles.Add(detalles);
+                    totalventa = (Ventas)ventasBindingSource.Current;
+                    totalventa.TotalPagar = totalventa.TotalPagar + detalles.totalProducto;
+                    ventasBindingSource.DataSource = totalventa;
+
                     detallesVentaBindingSource1.EndEdit();
                     detallesVentaBindingSource1.AddNew();
 
@@ -62,10 +66,6 @@ namespace SistemaRestaurante.Formularios
                     detallesVentaBindingSource.ResetBindings(true);
                     detallesVentaDataGridView.ClearSelection();
 
-                    totalventa = (Ventas)ventasBindingSource.Current;
-                    totalventa.TotalPagar = totalventa.TotalPagar + detalles.totalProducto;
-                    ventasBindingSource.DataSource = totalventa;
-                    ventasBindingSource.ResetBindings(true);
                 }
                 else
                 {
@@ -88,6 +88,18 @@ namespace SistemaRestaurante.Formularios
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cantidadTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (cantidadTextBox.Text != "" && precioVentaTextBox.Text != "")
+            {
+                int cantidad = Convert.ToInt32(cantidadTextBox.Text);
+                float precio = float.Parse(precioVentaTextBox.Text);
+                detalles = (DetallesVenta)detallesVentaBindingSource1.Current;
+                detalles.totalProducto = (precio * cantidad);
+                detallesVentaBindingSource1.DataSource = detalles;
+            }
         }
     }
 }

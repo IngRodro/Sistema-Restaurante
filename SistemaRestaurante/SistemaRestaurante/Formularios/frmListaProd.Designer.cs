@@ -161,7 +161,7 @@
             this.Controls.Add(this.productosVentaDataGridView);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "frmListaProd";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmListaProd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productosVentaDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosVentaBindingSource1)).EndInit();

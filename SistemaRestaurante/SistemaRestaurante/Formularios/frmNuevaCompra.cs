@@ -66,6 +66,10 @@ namespace SistemaRestaurante.Formularios
                 Compras totalcompra = new Compras();
 
                 detalles = (DetallesCompra)detallesCompraBindingSource.Current;
+                totalcompra = (Compras)comprasBindingSource.Current;
+                totalcompra.totalaPagar = totalcompra.totalaPagar + detalles.totalProducto;
+                comprasBindingSource.DataSource = totalcompra;
+
                 listaDetalles.Add(detalles);
                 compras.AgregarDetalles(detalles);
                 detallesCompraBindingSource.EndEdit();
@@ -74,10 +78,7 @@ namespace SistemaRestaurante.Formularios
                 detallesCompraBindingSource1.DataSource = listaDetalles;
                 detallesCompraBindingSource1.ResetBindings(true);
 
-                totalcompra = (Compras)comprasBindingSource.Current;
-                totalcompra.totalaPagar = totalcompra.totalaPagar + detalles.totalProducto;
-                comprasBindingSource.DataSource = totalcompra;
-                comprasBindingSource.ResetBindings(true);
+                
                 idProveedorComboBox.Enabled = false;
             }
         }
@@ -95,6 +96,18 @@ namespace SistemaRestaurante.Formularios
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cantidadTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (cantidadTextBox.Text != "" && precioCompraTextBox.Text != "")
+            {
+                int cantidad = Convert.ToInt32(cantidadTextBox.Text);
+                float precio = float.Parse(precioCompraTextBox.Text);
+                detalles = (DetallesCompra)detallesCompraBindingSource.Current;
+                detalles.totalProducto = (precio * cantidad);
+                detallesCompraBindingSource.DataSource = detalles;
+            }
         }
     }
 }

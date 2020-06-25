@@ -152,6 +152,7 @@
             this.cantidadTextBox.Name = "cantidadTextBox";
             this.cantidadTextBox.Size = new System.Drawing.Size(139, 26);
             this.cantidadTextBox.TabIndex = 7;
+            this.cantidadTextBox.TextChanged += new System.EventHandler(this.cantidadTextBox_TextChanged);
             // 
             // idProductoCComboBox
             // 
@@ -189,7 +190,7 @@
             // totalProductoTextBox
             // 
             this.totalProductoTextBox.BackColor = System.Drawing.Color.Black;
-            this.totalProductoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.detallesCompraBindingSource, "totalProducto", true));
+            this.totalProductoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.detallesCompraBindingSource, "totalProducto", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.totalProductoTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalProductoTextBox.ForeColor = System.Drawing.Color.White;
             this.totalProductoTextBox.Location = new System.Drawing.Point(437, 164);
@@ -304,7 +305,7 @@
             // totalaPagarTextBox
             // 
             this.totalaPagarTextBox.BackColor = System.Drawing.Color.Black;
-            this.totalaPagarTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.comprasBindingSource, "totalaPagar", true));
+            this.totalaPagarTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.comprasBindingSource, "totalaPagar", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.totalaPagarTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalaPagarTextBox.ForeColor = System.Drawing.Color.White;
             this.totalaPagarTextBox.Location = new System.Drawing.Point(319, 465);
@@ -376,7 +377,7 @@
             this.Controls.Add(totalProductoLabel);
             this.Controls.Add(this.totalProductoTextBox);
             this.Name = "frmNuevaCompra";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmNuevaCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.detallesCompraBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosCompraBindingSource)).EndInit();

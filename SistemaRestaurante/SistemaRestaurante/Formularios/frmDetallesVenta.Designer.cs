@@ -262,7 +262,7 @@
             this.Controls.Add(totalPagarLabel);
             this.Controls.Add(this.totalPagarTextBox);
             this.Name = "frmDetallesVenta";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmDetallesVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ventasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detallesVentaDataGridView)).EndInit();
